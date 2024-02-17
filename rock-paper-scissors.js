@@ -34,19 +34,24 @@ function playRound(playerSelection,computerSelection) {
     computerSelection = getComputerChoice()
 
     if ((playerSelection == 'rock') && (computerSelection == 'scissors')) {
-        return playerSelection + ' beats ' + computerSelection + ', you win!';
+        userScore++;
+        return playerSelection + ' beats ' + computerSelection + ', you win! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
     } else if ((playerSelection == 'paper') && (computerSelection == 'rock')) {
-        return playerSelection + ' beats ' + computerSelection + ', you win!';
+        userScore++;
+        return playerSelection + ' beats ' + computerSelection + ', you win! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
     } else if ((playerSelection == 'scissors') && (computerSelection == 'paper')) {
-        return playerSelection + ' beats ' + computerSelection + ', you win!';
+        userScore++;
+        return playerSelection + ' beats ' + computerSelection + ', you win! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
     } else if (playerSelection == computerSelection) {
-        return 'Both selected ' + playerSelection + ', tie!'; 
+        return 'Both selected ' + playerSelection + ', tie! UserScore: ' + userScore + ', Computer Score: ' + computerScore; 
     } else if (!(playerSelection == 'rock') && !(playerSelection == 'paper') && !(playerSelection == 'scissors')) {
         return 'invalid input';
     } else {
-        return computerSelection + ' beats ' + playerSelection + ', you lose!' ;
+        computerScore++;
+        return computerSelection + ' beats ' + playerSelection + ', you lose! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
     }
-
+    
+    
     }    
 
 
@@ -57,4 +62,5 @@ function playRound(playerSelection,computerSelection) {
             console.log(playRound(playerSelection,computerSelection))
         }
     }
-    playGame()
+    console.log(playGame())
+//'User Score: ' + userScore + ', Computer Score: ' + computerScore
