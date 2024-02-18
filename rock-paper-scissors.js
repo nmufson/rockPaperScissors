@@ -20,8 +20,7 @@ function getPlayerChoice() {
 
 //Declare constant variables that store the return values for both getPlayerChoice() and getComputerChoice()
 
-let playerSelection = ''
-let computerSelection = '' 
+
 
 let userScore = 0
 let computerScore = 0
@@ -30,8 +29,7 @@ let computerScore = 0
 // you win the round or not 
 function playRound(playerSelection,computerSelection) {
 
-    playerSelection = getPlayerChoice()
-    computerSelection = getComputerChoice()
+    
 
     if ((playerSelection == 'rock') && (computerSelection == 'scissors')) {
         userScore++;
@@ -55,11 +53,19 @@ function playRound(playerSelection,computerSelection) {
     }    
 
 
-    //Declare a function that runs through five rounds of playRound()
+    //Declare a function that runs through five rounds of playRound() *** MAKE THE ARGUMENTS RUN THE PLAYER CHOICE AND COMPUTER CHOICE FUNCTIONS
     function playGame() {
         
         for (let i=0; i < 5; i++) {
-            console.log(playRound(playerSelection,computerSelection))
+            console.log(playRound(getPlayerChoice(),getComputerChoice()))
+        }
+    
+        if (userScore > computerScore) {
+            return 'You win!';
+        } else if (userScore == computerScore) {
+            return 'Draw!';
+        } else {
+            return 'You Lose!';
         }
     }
     console.log(playGame())
