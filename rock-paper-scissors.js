@@ -12,25 +12,36 @@ function getComputerChoice() {
 }
 
 // Declare a function that prompts user to enter a choice and returns it in lowercase 
-function getPlayerChoice() {
+/*function getPlayerChoice() {
     let playerChoice = prompt("Choose rock, paper, or scissors")
     return playerChoice.toLowerCase()
 }
-
+*/
 
 //Declare constant variables that store the return values for both getPlayerChoice() and getComputerChoice()
+let userScore = 0;
+let computerScore = 0;
+
+/*const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors'); */
 
 
+const buttons = document.querySelectorAll('button')
 
-let userScore = 0
-let computerScore = 0
+
+buttons.forEach(function(button) {
+    
+    button.addEventListener('click', () => {
+        playerChoice = button.textContent
+        console.log(playRound(playerChoice,getComputerChoice()))
+    })
+}
+)
 
 //Create a function that requires player and computer selection parameters and returns a message based on whether 
 // you win the round or not 
 function playRound(playerSelection,computerSelection) {
-
-    
-
     if ((playerSelection == 'rock') && (computerSelection == 'scissors')) {
         userScore++;
         return playerSelection + ' beats ' + computerSelection + ', you win! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
@@ -49,12 +60,11 @@ function playRound(playerSelection,computerSelection) {
         return computerSelection + ' beats ' + playerSelection + ', you lose! UserScore: ' + userScore + ', Computer Score: ' + computerScore;
     }
     
-    
     }    
 
 
     //Declare a function that runs through five rounds of playRound() *** MAKE THE ARGUMENTS RUN THE PLAYER CHOICE AND COMPUTER CHOICE FUNCTIONS
-    function playGame() {
+    /* function playGame() {
         
         for (let i=0; i < 5; i++) {
             console.log(playRound(getPlayerChoice(),getComputerChoice()))
@@ -68,5 +78,4 @@ function playRound(playerSelection,computerSelection) {
             return `Final Score: ${userScore} - ${computerScore}, you Lose!`;
         }
     }
-    console.log(playGame())
-//'User Score: ' + userScore + ', Computer Score: ' + computerScore
+    console.log(playGame()) */
