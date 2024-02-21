@@ -61,11 +61,11 @@ function playRound(playerSelection,computerSelection) {
         }
     
         if (userScore > computerScore) {
-            return 'You win!';
+            return `Final Score: ${userScore} - ${computerScore}, you win!`;
         } else if (userScore == computerScore) {
-            return 'Draw!';
+            return `Final Score: ${userScore} - ${computerScore}, draw!`;
         } else {
-            return 'You Lose!';
+            return `Final Score: ${userScore} - ${computerScore}, you Lose!`;
         }
     }
     console.log(playGame())
