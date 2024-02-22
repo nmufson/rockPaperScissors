@@ -28,17 +28,37 @@ const scissorsBtn = document.querySelector('#scissors'); */
 
 
 const buttons = document.querySelectorAll('button')
+const roundResult = document.querySelector('#score')
+const gameOver = document.querySelector('#gameOver')
 
+rockBtn = document.querySelector('#rock')
+paperBtn = document.querySelector('#paper')
+scissorsBtn = document.querySelector('#scissors')
 
 buttons.forEach(function(button) {
-    
-    button.addEventListener('click', () => {
+    checkGameOver()
+    let clickButton = function(event) {
+        
         playerChoice = button.textContent
-        console.log(playRound(playerChoice,getComputerChoice()))
-    })
-}
-)
+        roundResult.textContent = (playRound(playerChoice,getComputerChoice()))
+        checkGameOver()
+             
+    }
+    button.addEventListener('click', clickButton) 
+    
 
+    function checkGameOver()  {
+        if ((userScore >= 5) || (computerScore >= 5)) {
+            button.removeEventListener('click',clickButton)
+            } 
+            if (userScore >= 5) {
+                gameOver.textContent = "Five points! You win!"
+            } else if (computerScore >= 5) {
+                gameOver.textContent = "Game over! You lose!"
+            }
+            }   
+} )
+            
 //Create a function that requires player and computer selection parameters and returns a message based on whether 
 // you win the round or not 
 function playRound(playerSelection,computerSelection) {
